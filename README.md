@@ -9,6 +9,7 @@ Create own commands easily without any programming knowledge.
 6. Restart your server
 7. Enjoy your new commands
 # Downloads
+Latest: [Poggit](https://poggit.pmmp.io/p/CommandCreator)
 |Version|Pocketmine|Stable|
 |-------|----------|------|
-|1.0.0|SOON|✔|
+|1.0.0|[Download](https://poggit.pmmp.io/r/62868/CommandCreator_dev-1.phar)|✔|

@@ -1,0 +1,41 @@
+# CommandCreator Commands
+# Types:
+# mts: Message to sender
+# gm: Global Message
+# pec: Player execute command
+# cec: Console execute command
+
+# Placeholders:
+# {ARGS_0}, {ARGS_1}...
+# {ARGS_ALL}
+# {PLAYER_NAME}
+
+commands:
+  info:
+    alias: ["i"]
+    type: mts
+    permission: none
+    usage: "/info"
+    description: "info command"
+    execute: "Hello {PLAYER_NAME} this plugin uses CommandCreator."
+  broadcast:
+    alias: ["br", "broadc"]
+    type: gm
+    permission: cc.broadcast
+    usage: "/broadcast <message>"
+    description: "info command"
+    execute: "§cBroadcast§8: §r{ARGS_ALL}"
+  adv-broadcast:
+    alias: ["abr", "a-broadc"]
+    type: gm
+    permission: cc.adv.broadcast
+    usage: "/adv-broadcast <message>"
+    description: "info command"
+    execute: "{ARGS_ALL}"
+  food:
+    alias: []
+    type: cec
+    permission: cc.food
+    usage: "/food"
+    description: "info command"
+    execute: "give {PLAYER_NAME} steak 16"

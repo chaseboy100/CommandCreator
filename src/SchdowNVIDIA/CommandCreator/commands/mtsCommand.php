@@ -24,10 +24,29 @@ class mtsCommand extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $sender->sendMessage($this->format_mts($sender, $this->execute));
+        $sender->sendMessage($this->format_mts($sender, $args, $this->execute));
     }
 
-    private function format_mts(CommandSender $sender, string $toFormat) {
+    private function format_mts(CommandSender $sender, array $args, string $toFormat) {
+        if(isset($args[0])) {
+            $toFormat = str_replace("{ARGS_0}", $args[0], $toFormat);
+            $toFormat = str_replace("{ARGS_ALL}", implode(" ", $args), $toFormat);
+        }
+        if(isset($args[1])) {
+            $toFormat = str_replace("{ARGS_1}", $args[1], $toFormat);
+        }
+        if(isset($args[2])) {
+            $toFormat = str_replace("{ARGS_2}", $args[2], $toFormat);
+        }
+        if(isset($args[3])) {
+            $toFormat = str_replace("{ARGS_3}", $args[3], $toFormat);
+        }
+        if(isset($args[4])) {
+            $toFormat = str_replace("{ARGS_4}", $args[4], $toFormat);
+        }
+        if(isset($args[5])) {
+            $toFormat = str_replace("{ARGS_5}", $args[5], $toFormat);
+        }
         $toReplace = str_replace("{PLAYER_NAME}", $sender->getName(), $toFormat);
         return $toReplace;
     }

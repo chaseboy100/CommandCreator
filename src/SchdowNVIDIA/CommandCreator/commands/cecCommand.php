@@ -5,9 +5,12 @@ namespace SchdowNVIDIA\CommandCreator\commands;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\ConsoleCommandSender;
+use pocketmine\Player;
 use SchdowNVIDIA\CommandCreator\CommandCreator;
 
-class gmCommand extends Command {
+class cecCommand extends Command
+{
 
     private $plugin;
     private $execute;
@@ -16,7 +19,7 @@ class gmCommand extends Command {
     {
         $this->execute = $execute;
         parent::__construct($name, $description, $usage, $alias);
-        if($permission != "none") {
+        if ($permission != "none") {
             $this->setPermission($permission);
         }
         $this->plugin = $plugin;
@@ -24,10 +27,15 @@ class gmCommand extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $this->plugin->getServer()->broadcastMessage($this->format_gm($sender, $args, $this->execute));
+        if(!$sender instanceof Player) {
+            $sender->sendMessage("§cERROR: §fcecCommands can be only executed in-game!");
+            return;
+        }
+        $this->plugin->getServer()->dispatchCommand(new ConsoleCommandSender(), $this->format_cec($sender, $args, $this->execute));
     }
 
-    private function format_gm(CommandSender $sender, array $args, string $toFormat) {
+    private function format_cec(CommandSender $sender, array $args, string $toFormat) {
+
         if(isset($args[0])) {
             $toFormat = str_replace("{ARGS_0}", $args[0], $toFormat);
             $toFormat = str_replace("{ARGS_ALL}", implode(" ", $args), $toFormat);
@@ -47,10 +55,9 @@ class gmCommand extends Command {
         if(isset($args[5])) {
             $toFormat = str_replace("{ARGS_5}", $args[5], $toFormat);
         }
+
         $toFormat = str_replace("{PLAYER_NAME}", $sender->getName(), $toFormat);
 
         return $toFormat;
-
     }
-
 }

@@ -5,8 +5,10 @@ namespace SchdowNVIDIA\CommandCreator;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
+use SchdowNVIDIA\CommandCreator\commands\cecCommand;
 use SchdowNVIDIA\CommandCreator\commands\gmCommand;
 use SchdowNVIDIA\CommandCreator\commands\mtsCommand;
+use SchdowNVIDIA\CommandCreator\commands\pecCommand;
 
 class CommandCreator extends PluginBase {
 
@@ -33,6 +35,10 @@ class CommandCreator extends PluginBase {
                 $this->getServer()->getCommandMap()->register($name, new mtsCommand($this, $name, $description, $execute, $usage, $permission, $alias));
             } else if($type === "gm") {
                 $this->getServer()->getCommandMap()->register($name, new gmCommand($this, $name, $description, $execute, $usage, $permission, $alias));
+            } else if($type === "cec") {
+                $this->getServer()->getCommandMap()->register($name, new cecCommand($this, $name, $description, $execute, $usage, $permission, $alias));
+            } else if($type === "pec") {
+                $this->getServer()->getCommandMap()->register($name, new pecCommand($this, $name, $description, $execute, $usage, $permission, $alias));
             }
 
         }

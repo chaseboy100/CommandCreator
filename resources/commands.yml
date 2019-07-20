@@ -10,6 +10,15 @@
 # {ARGS_ALL}
 # {PLAYER_NAME}
 
+# example command:
+# myfirstcommand:
+#   alias: ["mfc"]
+#   type: mts
+#   permission: cc.mfc
+#   usage: "/myfirstcommand"
+#   description: "My first command"
+#   execute: "Well done {PLAYER_NAME}! this is your first command with CommandCreator!"
+
 commands:
   info:
     alias: ["i"]
@@ -45,4 +54,4 @@ commands:
     permission: cc.food
     usage: "/food"
     description: "info command"
-    execute: "give {PLAYER_NAME} steak 16"
+    execute: "give \"{PLAYER_NAME}\" steak 16"

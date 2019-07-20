@@ -1,2 +1,2 @@
 # CommandCreator
-CommandCreator: a Plugin for PocketMine-MP Servers
+Create own commands easily without any programming knowledge.

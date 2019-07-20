@@ -41,6 +41,12 @@ class mtsCommand extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        if($this->getPermission() != null) {
+            if (!$sender->hasPermission($this->getPermission())) {
+                $sender->sendMessage("§cYou do not have permission to use this command");
+                return;
+            }
+        }
         $sender->sendMessage($this->format_mts($sender, $args, $this->execute));
     }
 

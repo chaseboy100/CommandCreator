@@ -41,6 +41,12 @@ class gmCommand extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        if($this->getPermission() != null) {
+            if (!$sender->hasPermission($this->getPermission())) {
+                $sender->sendMessage("§cYou do not have permission to use this command");
+                return;
+            }
+        }
         $this->plugin->getServer()->broadcastMessage($this->format_gm($sender, $args, $this->execute));
     }
 

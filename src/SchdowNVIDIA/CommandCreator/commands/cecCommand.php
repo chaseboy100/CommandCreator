@@ -44,6 +44,12 @@ class cecCommand extends Command
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        if($this->getPermission() != null) {
+            if (!$sender->hasPermission($this->getPermission())) {
+                $sender->sendMessage("§cYou do not have permission to use this command");
+                return;
+            }
+        }
         if(!$sender instanceof Player) {
             $sender->sendMessage("§cERROR: §fcecCommands can be only executed in-game!");
             return;

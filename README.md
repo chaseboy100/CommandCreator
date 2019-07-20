@@ -13,4 +13,4 @@ Latest: [Poggit](https://poggit.pmmp.io/p/CommandCreator)
 ## All versions:
 |Version|Pocketmine|Stable|
 |-------|----------|------|
-|1.0.0|[Download](https://poggit.pmmp.io/r/62868/CommandCreator_dev-1.phar)|✔|
+|1.0.0|[Download](https://poggit.pmmp.io/r/62878/CommandCreator_dev-5.phar)|✔|

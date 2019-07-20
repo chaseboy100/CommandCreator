@@ -5,6 +5,7 @@ namespace SchdowNVIDIA\CommandCreator;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
+use SchdowNVIDIA\CommandCreator\commands\gmCommand;
 use SchdowNVIDIA\CommandCreator\commands\mtsCommand;
 
 class CommandCreator extends PluginBase {
@@ -30,6 +31,8 @@ class CommandCreator extends PluginBase {
 
             if($type === "mts") {
                 $this->getServer()->getCommandMap()->register($name, new mtsCommand($this, $name, $description, $execute, $usage, $permission, $alias));
+            } else if($type === "gm") {
+                $this->getServer()->getCommandMap()->register($name, new gmCommand($this, $name, $description, $execute, $usage, $permission, $alias));
             }
 
         }

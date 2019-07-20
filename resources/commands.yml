@@ -6,7 +6,7 @@
 # cec: Console execute command
 
 # Placeholders:
-# {ARGS_0}, {ARGS_1}...
+# {ARGS_0}, {ARGS_1}, {ARGS_2}, {ARGS_3}, {ARGS_4}, {ARGS_5}
 # {ARGS_ALL}
 # {PLAYER_NAME}
 
@@ -17,7 +17,14 @@ commands:
     permission: none
     usage: "/info"
     description: "info command"
-    execute: "Hello {PLAYER_NAME} this plugin uses CommandCreator."
+    execute: "Hello {PLAYER_NAME} this server uses CommandCreator."
+  website:
+    alias: ["web"]
+    type: mts
+    permission: none
+    usage: "/website"
+    description: "Website command"
+    execute: "Hey, you can visit our website at: www.example.domain"
   broadcast:
     alias: ["br", "broadc"]
     type: gm

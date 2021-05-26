@@ -29,12 +29,22 @@ use SchdowNVIDIA\CommandCreator\commands\pecCommand;
 
 class CommandCreator extends PluginBase {
 
-    public function onEnable()
-    {
+    public function onEnable() {
+        foreach($this->getServer()->getCommandMap()->getCommands() as $cmd) {
+            $this->default[$cmd->getName()] = [
+                "description" => $cmd->getDescription(),
+                "aliases" => $cmd->getAliases(),
+                "permission" => $cmd->getPermission(),
+                "permissionmessage" => $cmd->getPermissionMessage(),
+                "disabled" => false
+            ];
         $this->saveDefaultConfig();
         $this->saveResource("commands.yml");
         $this->init();
     }
+    public function onEnable() {
+
+        }
 
     private function init() {
         $commandsConfig = new Config($this->getDataFolder()."commands.yml", Config::YAML);

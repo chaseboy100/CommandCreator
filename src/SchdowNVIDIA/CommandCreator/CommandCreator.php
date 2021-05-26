@@ -42,10 +42,7 @@ class CommandCreator extends PluginBase {
         $this->saveResource("commands.yml");
         $this->init();
     }
-    public function onEnable() {
-
-        }
-
+        
     private function init() {
         $commandsConfig = new Config($this->getDataFolder()."commands.yml", Config::YAML);
         foreach ($commandsConfig->getNested("commands") as $command => $attribute) {
